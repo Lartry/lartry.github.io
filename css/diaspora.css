@@ -180,16 +180,17 @@ audio {
     z-index: 4;
     position: relative;
     display: inline-block;
-    -webkit-background-size: 75px 32px;
-    -moz-background-size: 75px 32px;
-    background-size: 75px 32px;
+    -webkit-background-size: 73px 73px;
+    -moz-background-size: 73px 73px;
+    background-size: 73px 73px;
     background-repeat: no-repeat;
     background-position: center center;
-    -webkit-mask-box-image: url("/img/logo.png");
-    background-color: white;
-    width: 75px;
-    height: 32px;
-    mask-image: url("/img/logo.png");
+    background-image: url("/img/logo.png");
+    /* -webkit-mask-box-image: url("/img/logo.png");
+    background-color: rgba(238, 12, 12, 0.877); */
+    width: 73px;
+    height: 73px;
+    /* mask-image: url("/img/logo.png"); */
     mask-size: contain;
     transition: background-color 0.5s ease-in-out;
 }
