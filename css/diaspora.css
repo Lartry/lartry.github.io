@@ -599,7 +599,7 @@ body.mu .icon-logo {
     height: 200%;
     position: absolute;
     left: 50%;
-    background: #eaeaea;
+    background: rgb(73, 73, 73);
     top: -50%;
     z-index: 0;
 }
@@ -615,6 +615,7 @@ body.mu .icon-logo {
 }
 
 .section {
+    /* background-color: rgb(73, 73, 73); */
     position: relative;
     width: 100%;
     overflow: hidden;
