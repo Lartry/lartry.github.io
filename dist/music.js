@@ -22,3 +22,4 @@ const ap = new APlayer({
         }
     ]
 });
+ap.autoplay = true;
