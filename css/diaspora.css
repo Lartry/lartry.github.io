@@ -23,6 +23,7 @@ body {
     -webkit-tap-highlight-color: rgb(204, 247, 157);
     -webkit-font-smoothing: antialiased;
     background: rgb(73, 73, 73);
+    height: 100%
 }
 
 body {
@@ -108,6 +109,12 @@ audio {
     opacity: 0;
     width: 0;
     height: 0;
+}
+
+#daovice {
+    width: 300;
+    right: 500px;
+    top: 500px
 }
 
 #screen {
@@ -1514,3 +1521,98 @@ pre .javascript .function {
         content: "";
     }
 }
+
+
+/*================================*/
+
+
+/*================================*/
+
+
+/*================================*/
+
+
+/*================================*/
+
+
+/*================================*/
+
+
+/*================================*/
+
+
+/*================================*/
+
+
+/*================================*/
+
+
+/*================================*/
+
+
+/*================================*/
+
+
+/*================================*/
+
+
+/*================================*/
+
+
+/*================================*/
+
+
+/*================================*/
+
+
+/*================================*/
+
+
+/* td,
+th {
+    border-bottom: 3px solid #ddd;
+    border-right: 1px solid #eee
+}
+
+th {
+    padding-bottom: 10px;
+    font-weight: 700
+}
+
+td {
+    border-bottom-width: 1px
+} */
+
+
+/* body,
+html {
+    height: 100%
+} */
+
+
+/* .container {
+    position: relative;
+    min-height: 100%
+} */
+
+
+/* 
+.header-inner {
+    margin: 0 auto;
+    width: 700px
+}
+
+@media (min-width:1600px) {
+    .container .header-inner {
+        width: 900px
+    }
+}
+
+.main {
+    padding-bottom: 150px
+}
+
+.main-inner {
+    margin: 0 auto;
+    width: 700px
+} */
