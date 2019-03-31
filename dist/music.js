@@ -1,7 +1,7 @@
 const ap = new APlayer({
     container: document.getElementById('aplayer'),
     fixed: true,
-    autoplay: false,
+    autoplay: true,
     audio: [{
             name: "PDD洪荒之力",
             artist: '徐梦圆',
