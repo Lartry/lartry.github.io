@@ -7,7 +7,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <title>
-            libtry.com
+            TortoiseGit 基本功能的使用 - libtry.com
         </title>
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -16,6 +16,10 @@
             <meta name="keywords" content="libtry,">
             
                 
+                    <meta name="description" content="TortoiseGit介绍
+TortoiseGit是一个Git版本控制系统的免费开源客户端，作为Microsoft Windows的外壳扩展实现。
+关于什么是版本控制和什么是Git，在Git的官网当,">
+                    
                         
                             <meta name="author" content="lartry">
                             
@@ -168,125 +172,92 @@
             };
         </script> -->
         <!-- <script type="text/javascript" src="/js/canvas-nest.min.js"></script> -->
-        <div class="nav">
-    <ul id="menu-menu" class="menu">
-        
-            <li class="  menu-item menu-item-type-post_type menu-item-object-page">
-                <a href="https://github.com/Lartry" title="Whoami" target="_blank" rel="noopener">Whoami</a>
-            </li>
-            
-            <li class="  menu-item menu-item-type-post_type menu-item-object-page">
-                <a href="https://github.com/Lartry" title="Github" target="_blank" rel="noopener">Github</a>
-            </li>
-            
-            <li class="  menu-item menu-item-type-post_type menu-item-object-page">
-                <a href="https://github.com/Lartry" title="Twitter" target="_blank" rel="noopener">Twitter</a>
-            </li>
-            
-    </ul>
-    <p id="copyright">
-        &copy;
-        2019
-            lartry. Powered by
-                <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
-                    Theme
-                    <a href="https://github.com/Fechin/hexo-theme-diaspora" title="diaspora" target="_blank" rel="noopener">diaspora</a>
-                        by Fechin
-    </p>
-</div>
-<div id="container">
-    
-<div id="screen">
-    <div id="mark">
-        <div class="layer" data-depth="0.4">
-            <img src="/img/welcome-cover.jpg" id="cover" crossorigin="anonymous" width="1920" height="1080">
-        </div>
-    </div>
-    <div id="vibrant">
-        <svg viewbox="0 0 2880 1620" height="100%" preserveaspectratio="xMaxYMax slice">
-            <polygon opacity="0.7" points="2000,1620 0,1620 0,0 600,0 "/>
-        </svg>
-        <div></div>
-    </div>
-    <div id="header">
+        <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="https://libtry.com"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">TortoiseGit 基本功能的使用</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
         <div>
-            <a class="image-logo" href="/"></a>
-            <div class="icon-menu switchmenu"></div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
         </div>
     </div>
-    
-    <div id="post0">
-        <p>四月 03, 2019</p>
-        <h2><a href="/2019/04/03/Git的安装/" title="Git的安装" class="posttitle">Git的安装</a></h2>
-        <p class="summary">
-安装TortoiseGit的前提是Git已经安装并配置完成，所以接下来先安装Git。安装很简单基本上保持默认即可...</p>
-    </div>
-    
+    <div class="scrollbar"></div>
 </div>
 
-    <div id="primary">
+    <div class="section">
+        <div class="article">
+    <div class="main">
+        <h1 class="title">TortoiseGit 基本功能的使用</h1>
+        <div class="stuff">
+            <span>四月 03, 2019</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/TortoiseGit-基本功能的使用/">TortoiseGit 基本功能的使用</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h3 id="TortoiseGit介绍"><a href="#TortoiseGit介绍" class="headerlink" title="TortoiseGit介绍"></a>TortoiseGit介绍</h3><blockquote>
+<p><a href="https://tortoisegit.org/" target="_blank" rel="noopener"><strong>TortoiseGit</strong></a>是一个<a href="https://zh.wikipedia.org/wiki/Git" target="_blank" rel="noopener">Git</a>版本控制系统的免费开源客户端，作为<a href="https://zh.wikipedia.org/wiki/Microsoft_Windows" target="_blank" rel="noopener">Microsoft Windows</a>的外壳扩展实现。</p>
+<p>关于什么是版本控制和什么是Git，在Git的官网当中有详细的介绍，可以点击这里进行了解<a href="https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control" target="_blank" rel="noopener">GitBook</a>.</p>
+<p>此篇文章介绍的为WIndows下TortoiseGit的使用。Linux的请另行寻找。</p>
+<p>我个人觉得Linux下Git就够了，因为我基本都是使用Shell操作，所以感觉用不到这个。</p>
+</blockquote>
+<h3 id="软件包的下载"><a href="#软件包的下载" class="headerlink" title="软件包的下载"></a>软件包的下载</h3><blockquote>
+<p>在开始安装之前，首先将整片文章中需要用到的软件包下载下来，以便后续操作。</p>
+</blockquote>
+<ul>
+<li><p>下载最新版本的Git for Windows安装包<a href="https://git-scm.com/downloads" target="_blank" rel="noopener">Download</a>. </p>
+<p><img src="/2019/04/03/TortoiseGit 基本功能的使用/2019-04-02_232935.png" alt="2019-04-02_232935">  </p>
+</li>
+<li><p>如果不知道自己的系统位数的可以通过在Cmd中输入以下命令查看：</p>
+<p>Cmd的打开方式为Win键+R键。然后在运行框中输入Cmd。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systeminfo | find "系统类型"</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>下载最新版的TortoiseGit安装包<a href="https://tortoisegit.org/download/" target="_blank" rel="noopener">Download</a>. </p>
+<p><img src="/2019/04/03/TortoiseGit 基本功能的使用/2019-04-02_233315.png" alt="2019-04-02_233315">  </p>
+</li>
+<li><p>下载最新版的TortoiseGit中文语言包，上一个面中继续下拉，<strong>语言包的位数要和刚刚下载安装包的位数相同</strong>。</p>
+<p><img src="/2019/04/03/TortoiseGit 基本功能的使用/2019-04-02_235523.png" alt="2019-04-02_235523"> </p>
+</li>
+</ul>
+<h3 id="Git的安装"><a href="#Git的安装" class="headerlink" title="Git的安装"></a>Git的安装</h3><blockquote>
+<p>请阅读上一篇关于Git安装的文章。</p>
+</blockquote>
+<h3 id="TortoiseGit的安装"><a href="#TortoiseGit的安装" class="headerlink" title="TortoiseGit的安装"></a>TortoiseGit的安装</h3><blockquote>
+<p>请阅读上一篇关于TortoiseGit安装的文章。</p>
+</blockquote>
+<h3 id="TortoiseGit的使用"><a href="#TortoiseGit的使用" class="headerlink" title="TortoiseGit的使用"></a>TortoiseGit的使用</h3>
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src>
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        <li title="0" data-url="http://link.hhtjim.com/qq/001faIUs4M2zna.mp3"></li>
+                    
+                </ul>
+            
+        </div>
         
-<div class="post">
-    <a href="/2019/04/03/TortoiseGit安装与配置/" title="TortoiseGit安装与配置">
-        <img src="/img/cover.jpg" class="cover" width="680" height="440">
-    </a>
-    <div class="else">
-        <p>四月 03, 2019</p>
-        <h3><a href="/2019/04/03/TortoiseGit安装与配置/" title="TortoiseGit安装与配置" class="posttitle">TortoiseGit安装与配置</a></h3>
-        <p>因网上已有写好的文章了，很详细，故不再重写，只稍作修改及调整。
-版权声明：本篇修改自GitHub项目translation作者: 铁锚: http://b...</p>
-    </div>
-</div>
-
-
-<div class="post">
-    <a href="/2019/04/03/TortoiseGit 基本功能的使用/" title="TortoiseGit 基本功能的使用">
-        <img src="/img/cover.jpg" class="cover" width="680" height="440">
-    </a>
-    <div class="else">
-        <p>四月 03, 2019</p>
-        <h3><a href="/2019/04/03/TortoiseGit 基本功能的使用/" title="TortoiseGit 基本功能的使用" class="posttitle">TortoiseGit 基本功能的使用</a></h3>
-        <p>TortoiseGit介绍
-TortoiseGit是一个Git版本控制系统的免费开源客户端，作为Microsoft Windows的外壳扩展实现。
-关于什...</p>
-    </div>
-</div>
-
-
-<div class="post">
-    <a href="/2019/04/01/I-Love-You/" title="I Love You">
-        <img src="/img/cover.jpg" class="cover" width="680" height="440">
-    </a>
-    <div class="else">
-        <p>四月 01, 2019</p>
-        <h3><a href="/2019/04/01/I-Love-You/" title="I Love You" class="posttitle">I Love You</a></h3>
-        <p>I Love You
-Love You 
-
- Love You 
-
-</p>
-    </div>
-</div>
-
-
-<div class="post">
-    <a href="/2019/03/31/hello-world/" title="Hello World">
-        <img src="/img/cover.jpg" class="cover" width="680" height="440">
-    </a>
-    <div class="else">
-        <p>三月 31, 2019</p>
-        <h3><a href="/2019/03/31/hello-world/" title="Hello World" class="posttitle">Hello World</a></h3>
-        <p>Welcome to Hexo! This is your very first post. Check documentation for more i...</p>
-    </div>
-</div>
+    <div id="gitalk-container" class="comment link" data-ae="false" data-ci="3ebadceb557ab60472e6" data-cs="653fe853b558502a0b33d2e386f567f59a5cc02e" data-r="lartry.github.io" data-o="lartry" data-a="lartry" data-d="false">查看评论</div>
 
 
     </div>
     
 </div>
-<div id="preview"></div>
 
+
+    </div>
+</div>
     </body>
     <script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
 <script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
