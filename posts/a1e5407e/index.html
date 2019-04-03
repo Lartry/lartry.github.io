@@ -59,20 +59,6 @@ TortoiseGit是一个Git版本控制系统的免费开源客户端，作为Micros
                                                             });
                                                             daovoice('update');
                                                         </script>
-                                                        <script>
-                                                            (function() {
-                                                                if ('{{ page.password }}') {
-                                                                    if (prompt('请输入文章密码') !== '{{ page.password }}') {
-                                                                        alert('密码错误！');
-                                                                        if (history.length === 1) {
-                                                                            location.replace("https://libtry.com/"); // 这里替换成你的首页
-                                                                        } else {
-                                                                            history.back();
-                                                                        }
-                                                                    }
-                                                                }
-                                                            })();
-                                                        </script>
 
     </head></html>
 
