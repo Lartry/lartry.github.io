@@ -1,13 +1,13 @@
 
     <!DOCTYPE html>
-    <html lang class="loading">
+    <html lang="zh-CN" class="loading">
 
     <head><meta name="generator" content="Hexo 3.8.0">
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <title>
-            TortoiseGit安装与配置 - libtry.com
+            TortoiseGit 基本功能的使用 - libtry.com
         </title>
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -16,8 +16,9 @@
             <meta name="keywords" content="libtry,">
             
                 
-                    <meta name="description" content="因网上已有写好的文章了，很详细，故不再重写，只稍作修改及调整。
-版权声明：本篇修改自GitHub项目translation作者: 铁锚: http://blog.csdn.net/renfufei转,">
+                    <meta name="description" content="一个分享技术和生活的个人博客。,TortoiseGit介绍
+TortoiseGit是一个Git版本控制系统的免费开源客户端，作为Microsoft Windows的外壳扩展实现。
+关于什么是版本控制和什么是Git，在Git的官网当,">
                     
                         
                             <meta name="author" content="lartry">
@@ -176,7 +177,7 @@
     <div class="bar" style="width: 0;"></div>
     <a class="icon-home image-icon" href="javascript:;" data-url="https://libtry.com"></a>
     <div title="播放/暂停" class="icon-play"></div>
-    <h3 class="subtitle">TortoiseGit安装与配置</h3>
+    <h3 class="subtitle">TortoiseGit 基本功能的使用</h3>
     <div class="social">
         <!--<div class="like-icon">-->
             <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -194,117 +195,46 @@
     <div class="section">
         <div class="article">
     <div class="main">
-        <h1 class="title">TortoiseGit安装与配置</h1>
+        <h1 class="title">TortoiseGit 基本功能的使用</h1>
         <div class="stuff">
             <span>四月 03, 2019</span>
             
-  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/TortoiseGit/">TortoiseGit</a></li></ul>
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/TortoiseGit-基本功能的使用/">TortoiseGit 基本功能的使用</a></li></ul>
 
 
         </div>
         <div class="content markdown">
-            <p>因网上已有写好的文章了，很详细，故不再重写，只稍作修改及调整。</p>
-<p>版权声明：本篇修改自<strong>GitHub</strong>项目<strong>translation</strong><a href="https://github.com/cncounter/translation/blob/master/tiemao_2014/GitHelp/02_TortoiseGit.md" target="_blank" rel="noopener">作者: 铁锚: http://blog.csdn.net/renfufei</a>转载请注明</p>
-<blockquote>
-<p>TortoiseGit 简称 tgit, 中文名海龟Git. 海龟Git只支持神器 Windows 系统, 有一个前辈海龟SVN, TortoiseSVN和TortoiseGit都是非常优秀的开源的版本库客户端. 分为32位版与64位版.并且支持各种语言,包括简体中文(Chinese, simplified; zh_CN).</p>
+            <h3 id="TortoiseGit介绍"><a href="#TortoiseGit介绍" class="headerlink" title="TortoiseGit介绍"></a>TortoiseGit介绍</h3><blockquote>
+<p><a href="https://tortoisegit.org/" target="_blank" rel="noopener"><strong>TortoiseGit</strong></a>是一个<a href="https://zh.wikipedia.org/wiki/Git" target="_blank" rel="noopener">Git</a>版本控制系统的免费开源客户端，作为<a href="https://zh.wikipedia.org/wiki/Microsoft_Windows" target="_blank" rel="noopener">Microsoft Windows</a>的外壳扩展实现。</p>
+<p>关于什么是版本控制和什么是Git，在Git的官网当中有详细的介绍，可以点击这里进行了解<a href="https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control" target="_blank" rel="noopener">GitBook</a>.</p>
+<p>此篇文章介绍的为WIndows下TortoiseGit的使用。Linux的请另行寻找。</p>
+<p>我个人觉得Linux下Git就够了，因为我基本都是使用Shell操作，所以感觉用不到这个。</p>
 </blockquote>
-<p><strong>注意:</strong> XP系统已经不支持最新的安装包,请尽量使用 Win7 或更高版本的操作系统. </p>
-<p>官方说明是: Windows XP 只兼容 1.8.16.0 及之前的版本:  (last version which is compatible with Windows XP is <a href="https://download.tortoisegit.org/tgit/1.8.16.0/" target="_blank" rel="noopener">1.8.16.0</a>;</p>
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><ul>
-<li><p>我们需要先安装程序包,然后安装语言包(LanguagePack). 因为TortoiseGit 只是一个程序壳,必须依赖一个 Git Core,也就是上一节我们安装的 Git. 所以安装前请确定已完成<a href="01_GitInstall.md">上一节的操作</a>. 下面以64位版本为演示(64,32位除文件名不一样,其他的操作都一致)</p>
-</li>
-<li><p>双击安装程序 <code>TortoiseGit-2.3.0.0-64bit.msi</code>. 弹出安装向导界面:</p>
-<p> <img src="/2019/04/03/TortoiseGit安装与配置/203_tgitWizard.png" alt="203_tgitWizard"> </p>
-</li>
-<li><p>下一步,进入版权信息界面. 直接点击下一步(Next)即可.</p>
-<p> <img src="/2019/04/03/TortoiseGit安装与配置/204_tgit_License.png" alt="204_tgit_License"> </p>
-</li>
-<li><p>下一步,选择SSH客户端. 可以选择 TortoiseGitPlink(位于TortoiseGit安装目录/bin 下), 也可以选择 Git 默认的SSH客户端,位于 Git安装目录/bin/ssh.exe(如果配置了 Path,那直接是 ssh.exe)</p>
-<p> <img src="/2019/04/03/TortoiseGit安装与配置/204_2_tgit_Network.png" alt="204_2_tgit_Network"> </p>
-</li>
-<li><p>接着是选择安装目录,可以保持默认,或者安装到开发环境目录下,安装的程序组件保持默认即可：</p>
-<p> <img src="/2019/04/03/TortoiseGit安装与配置/205_tgit_dir.png" alt="205_tgit_dir"> </p>
-</li>
-<li><p>下一步到确认安装界面,点击 Install按钮安装即可,如下图所示:</p>
-<p> <img src="/2019/04/03/TortoiseGit安装与配置/206_install_tgit.png" alt="206_install_tgit"> </p>
-</li>
-<li><p>安装完成,点击 Finish 按钮即可:</p>
-<p> <img src="/2019/04/03/TortoiseGit安装与配置/207_tgit_installed.png" alt="207_tgit_installed"> </p>
-</li>
-<li><p>安装语言包，双击打开 <code>TortoiseGit-LanguagePack-2.3.0.0-64bit-zh_CN.msi</code> ,则弹出语言包安装向导:</p>
-<p> <img src="/2019/04/03/TortoiseGit安装与配置/208_LanguageWizard.png" alt="208_LanguageWizard"> </p>
-</li>
-<li><p>点击下一步(Alt+N), 语言包会自动安装完成:</p>
-<p> <img src="/2019/04/03/TortoiseGit安装与配置/209_LangPackFinished.png" alt="209_LangPackFinished"> </p>
-</li>
-</ul>
-<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><ul>
-<li><p>首先,请选定一个存放Git项目的目录,这样管理方便. 如: <code>F:\STUDY\GIT_STUDY</code> , 然后在资源管理器中打开.</p>
-</li>
-<li><p>在空白处点击鼠标右键, 选择 –&gt; TortoiseGit –&gt; Settings, 然后就可以看到配置界面:</p>
-<p> <img src="/2019/04/03/TortoiseGit安装与配置/210_LanguageSel.png" alt="210_LanguageSel"> </p>
-</li>
-<li><p>选中General,在右边的 Language中选择中文. 不勾选自动升级的复选框,可能还需要指定 Git.exe 文件的路径,如 “<code>D:\DevlopPrograms\Git\bin</code>“. 完成后,点击应用,确定关闭对话框.(当然,你也可以继续使用英文)</p>
-</li>
-<li><p>再次点击鼠标右键,可以看到弹出菜单中已经变成中文. 原来的 <strong>Settings</strong> 变成 <strong>设置</strong>;  <strong>Clone</strong> 变为 <strong>克隆</strong>.</p>
-</li>
-<li><p>配置右键菜单. 在设置对话框中,点选左边的”右键菜单”,然后在右边将所有的复选框都去掉,这样右键菜单显得比较干净:</p>
-<p> <img src="/2019/04/03/TortoiseGit安装与配置/211_contextMenu.png" alt="211_contextMenu"> </p>
-</li>
-<li><p>设置记住密码</p>
-</li>
-<li><p>!!!!!<strong> 密码会明文保存在 <code>C:\Users\Administrator\.git-credentials</code> 这种文件中, </strong>请小心使用**.</p>
-</li>
-<li><p>进入设置, 点选左边的Git标签.可以发现,右边可以配置用户的名字与Email信息. 如下图所示:</p>
-<p> <img src="/2019/04/03/TortoiseGit安装与配置/212_remberpass.png" alt="212_remberpass"> </p>
-</li>
-<li><p>因为当前还没有本地项目,所以 “<code>编辑本地 .git/config(L)</code>” 按钮处于灰色不可用状态,如果在某个本地Git项目下打开配置对话框,那么这个按钮就可用,然后就可以编辑此项目的一些属性。</p>
-</li>
-<li><p>点击 “<code>编辑全局 .git/config(O)</code>”按钮,会使用记事本打开全局配置文件,在全局配置文件中,在后面加上下面的内容:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[credential]</span><br><span class="line">helper = store</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>完成后保存,关闭记事本,确定即可。</p>
-</li>
-<li><p>则当你推送项目到GitHub等在线仓库时,会记住你输入的用户名和密码(这里不是用户的姓名和Email哦.)</p>
-</li>
-<li><p>如果你编辑的是 <code>本地 .git/config(L)</code>，其实这个翻译为<strong>本地</strong>有点问题,应该叫<strong><code>局部</code></strong>,也就是在某个项目下面设置,只对此项目有效.配置是一样的.</p>
+<h3 id="软件包的下载"><a href="#软件包的下载" class="headerlink" title="软件包的下载"></a>软件包的下载</h3><blockquote>
+<p>在开始安装之前，首先将整片文章中需要用到的软件包下载下来，以便后续操作。</p>
+</blockquote>
 <ul>
-<li><strong>用户名</strong>: 就是你注册的账号,如: tiemaocsdn</li>
-<li><strong>密码</strong>:   当然是注册时填写的密码: <strong><strong>*</strong></strong></li>
-<li><strong>Email</strong>: 是你的联系邮箱,给别人联系你时使用</li>
-<li><strong>用户姓名/昵称</strong>: 可以随便取,但最好有点意义</li>
-</ul>
+<li><p>下载最新版本的Git for Windows安装包<a href="https://git-scm.com/downloads" target="_blank" rel="noopener">Download</a>. </p>
+<p><img src="/posts/a1e5407e/2019-04-02_232935.png" alt="2019-04-02_232935">  </p>
+</li>
+<li><p>如果不知道自己的系统位数的可以通过在Cmd中输入以下命令查看：</p>
+<p>Cmd的打开方式为Win键+R键。然后在运行框中输入Cmd。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systeminfo | find "系统类型"</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>下载最新版的TortoiseGit安装包<a href="https://tortoisegit.org/download/" target="_blank" rel="noopener">Download</a>. </p>
+<p><img src="/posts/a1e5407e/2019-04-02_233315.png" alt="2019-04-02_233315">  </p>
+</li>
+<li><p>下载最新版的TortoiseGit中文语言包，上一个面中继续下拉，<strong>语言包的位数要和刚刚下载安装包的位数相同</strong>。</p>
+<p><img src="/posts/a1e5407e/2019-04-02_235523.png" alt="2019-04-02_235523"> </p>
 </li>
 </ul>
-<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><ul>
-<li><p>克隆一个项目:</p>
-</li>
-<li><p>在工作目录下,如 “<code>F:\STUDY\GIT_STUDY</code>”中,鼠标右键点击空白处,选择:  TortoiseGit –&gt; 克隆…(clone…) ；则会弹出克隆对话框,如下图所示:</p>
-<p> <img src="/2019/04/03/TortoiseGit安装与配置/213_CloneRepository.png" alt="213_CloneRepository"> </p>
-</li>
-<li><p>在URL中填写项目的访问地址,如:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/cncounter/translation.git</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>本地目录,你也可以自己选择,一般默认即可.然后点击”确定”按钮,开始克隆项目. 根据项目大小,时间会不一样. 克隆完成后,如果没有错误,会给出提示:</p>
-<p> <img src="/2019/04/03/TortoiseGit安装与配置/215_cloneok.png" alt="215_cloneok"> </p>
-</li>
-<li><p><strong>克隆</strong>: 就类似于拷贝,但是因为 SVN,Git之类的版本库存储时都是一个(数据)库,所以叫克隆.</p>
-</li>
-<li><p><strong>Git项目的URL</strong>: 可以在线访问Git项目页面,在右侧可以看到 SSH, HTTPS, SVN的访问路径.</p>
-</li>
-<li><p>例如:</p>
-<ul>
-<li>页面地址: <a href="https://github.com/cncounter/translation" target="_blank" rel="noopener">https://github.com/cncounter/translation</a></li>
-<li>HTTPS :   <a href="https://github.com/cncounter/translation.git" target="_blank" rel="noopener">https://github.com/cncounter/translation.git</a></li>
-<li>SSH : <a href="git@github.com:cncounter/translation.git">git@github.com:cncounter/translation.git</a></li>
-<li>SVN : <a href="https://github.com/cncounter/translation" target="_blank" rel="noopener">https://github.com/cncounter/translation</a></li>
-</ul>
-</li>
-<li><p>可以发现,大同小异. 如下图所示:</p>
-<p> <img src="/2019/04/03/TortoiseGit安装与配置/214_cloneurl.png" alt="214_cloneurl"> </p>
-</li>
-</ul>
-
+<h3 id="Git的安装"><a href="#Git的安装" class="headerlink" title="Git的安装"></a>Git的安装</h3><blockquote>
+<p>请阅读上一篇关于Git安装的文章。</p>
+</blockquote>
+<h3 id="TortoiseGit的安装"><a href="#TortoiseGit的安装" class="headerlink" title="TortoiseGit的安装"></a>TortoiseGit的安装</h3><blockquote>
+<p>请阅读上一篇关于TortoiseGit安装的文章。</p>
+</blockquote>
+<h3 id="TortoiseGit的使用"><a href="#TortoiseGit的使用" class="headerlink" title="TortoiseGit的使用"></a>TortoiseGit的使用</h3>
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
                 <source type="audio/mpeg" src>
