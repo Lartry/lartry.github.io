@@ -57,6 +57,20 @@
                                                             });
                                                             daovoice('update');
                                                         </script>
+                                                        <script>
+                                                            (function() {
+                                                                if ('{{ page.password }}') {
+                                                                    if (prompt('请输入文章密码') !== '{{ page.password }}') {
+                                                                        alert('密码错误！');
+                                                                        if (history.length === 1) {
+                                                                            location.replace("https://libtry.com/"); // 这里替换成你的首页
+                                                                        } else {
+                                                                            history.back();
+                                                                        }
+                                                                    }
+                                                                }
+                                                            })();
+                                                        </script>
 
     </head></html>
 
@@ -218,16 +232,37 @@
     </div>
     
     <div id="post0">
-        <p>四月 03, 2019</p>
-        <h2><a href="/posts/d19dd45f/" title="Git的安装" class="posttitle">Git的安装</a></h2>
-        <p class="summary">
-安装TortoiseGit的前提是Git已经安装并配置完成，所以接下来先安装Git。安装很简单基本上保持默认即可...</p>
+        <p>四月 04, 2019</p>
+        <h2><a href="/posts/0/" title="libtry.com" class="posttitle">libtry.com</a></h2>
+        <p class="summary">密码测试
+测试密码文章
+密码文章
+文章
+
+密码文章
+密码
+文章
+</p>
     </div>
     
 </div>
 
     <div id="primary">
         
+<div class="post">
+    <a href="/posts/d19dd45f/" title="Git的安装">
+        <img src="/img/cover.jpg" class="cover" width="680" height="440">
+    </a>
+    <div class="else">
+        <p>四月 03, 2019</p>
+        <h3><a href="/posts/d19dd45f/" title="Git的安装" class="posttitle">Git的安装</a></h3>
+        <p>
+安装TortoiseGit的前提是Git已经安装并配置完成，所以接下来先安装Git。安装很简单基本上保持默认即可。
+关于Git的安装以及过程中一些选项的...</p>
+    </div>
+</div>
+
+
 <div class="post">
     <a href="/posts/d022b518/" title="TortoiseGit安装与配置">
         <img src="/img/cover.jpg" class="cover" width="680" height="440">
