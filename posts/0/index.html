@@ -1,0 +1,411 @@
+
+    <!DOCTYPE html>
+    <html lang="zh-CN" class="loading">
+
+    <head><meta name="generator" content="Hexo 3.8.0">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <title>
+            Matlab中使用Git版本控制 - libtry.com
+        </title>
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta name="google" content="notranslate">
+        
+            <meta name="keywords" content="libtry,Matlab,Git,版本控制">
+            
+                
+                    <meta name="description" content="一个分享技术和生活的个人博客。,关于什么是Git
+关于什么是Git就不做介绍了，网上的介绍有很多，我推荐官方文档GitBook.
+
+Git的安装
+关于Git的文章，网上文章同样很多，但是根据Matlab官方文档的说明，安装途中的个,">
+                    
+                        
+                            <meta name="author" content="lartry">
+                            
+                                
+                                    <link rel="alternative" href="atom.xml" title="libtry.com" type="application/atom+xml">
+                                    
+                                        
+                                            <link rel="icon" href="/img/favicon.png">
+                                            
+                                                <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+                                                    <link rel="stylesheet" href="/css/diaspora.css">
+                                                        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                                                        <script>
+                                                            (adsbygoogle = window.adsbygoogle || []).push({
+                                                                google_ad_client: "ca-pub-8691406134231910",
+                                                                enable_page_level_ads: true
+                                                            });
+                                                        </script>
+                                                        <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+                                                        </script>
+                                                        <script>
+                                                            (function(i, s, o, g, r, a, m) {
+                                                                i["DaoVoiceObject"] = r;
+                                                                i[r] = i[r] || function() {
+                                                                    (i[r].q = i[r].q || []).push(arguments)
+                                                                }, i[r].l = 1 * new Date();
+                                                                a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+                                                                a.async = 1;
+                                                                a.src = g;
+                                                                a.charset = "utf-8";
+                                                                m.parentNode.insertBefore(a, m)
+                                                            })(window, document, "script", ('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/112a875c.js", "daovoice")
+                                                        </script>
+                                                        <script>
+                                                            daovoice('init', {
+                                                                app_id: "112a875c"
+                                                            });
+                                                            daovoice('update');
+                                                        </script>
+
+    </head></html>
+
+    <body class="loading">
+        <link rel="stylesheet" href="/dist/APlayer.min.css">
+        <div id="aplayer"></div>
+        <script type="text/javascript" src="/dist/APlayer.min.js"></script>
+        <script type="text/javascript" src="/dist/music.js"></script>
+        <span id="config-title" style="display:none">libtry.com</span>
+        <div id="loader"></div>
+        <!-- =================================abcd=================== -->
+        <!-- <canvas width="1440" height="756" style="display: block;"></canvas>
+        <script class="daovice">
+            var canvasDots = function() {
+                var canvas = document.querySelector('canvas'),
+                    ctx = canvas.getContext('2d'),
+                    colorDot = '#00bdbf',
+                    color = '#00bdbf';
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+                canvas.style.display = 'block';
+                ctx.fillStyle = colorDot;
+                ctx.lineWidth = .1;
+                ctx.strokeStyle = color;
+
+                var mousePosition = {
+                    x: 30 * canvas.width / 100,
+                    y: 30 * canvas.height / 100
+                };
+
+                var dots = {
+                    nb: 350,
+                    distance: 60,
+                    d_radius: 100,
+                    array: []
+                };
+
+                function Dot() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                    this.vx = -.5 + Math.random();
+                    this.vy = -.5 + Math.random();
+                    this.radius = Math.random();
+                }
+
+                Dot.prototype = {
+                    create: function() {
+                        ctx.beginPath();
+                        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
+                        ctx.fill();
+                    },
+
+                    animate: function() {
+                        for (i = 0; i < dots.nb; i++) {
+                            var dot = dots.array[i];
+                            if (dot.y < 0 || dot.y > canvas.height) {
+                                dot.vx = dot.vx;
+                                dot.vy = -dot.vy;
+                            } else if (dot.x < 0 || dot.x > canvas.width) {
+                                dot.vx = -dot.vx;
+                                dot.vy = dot.vy;
+                            }
+                            dot.x += dot.vx;
+                            dot.y += dot.vy;
+                        }
+                    },
+
+                    line: function() {
+                        for (i = 0; i < dots.nb; i++) {
+                            for (j = 0; j < dots.nb; j++) {
+                                i_dot = dots.array[i];
+                                j_dot = dots.array[j];
+
+                                if ((i_dot.x - j_dot.x) < dots.distance && (i_dot.y - j_dot.y) < dots.distance && (i_dot.x - j_dot.x) > -dots.distance && (i_dot.y - j_dot.y) > -dots.distance) {
+                                    if ((i_dot.x - mousePosition.x) < dots.d_radius && (i_dot.y - mousePosition.y) < dots.d_radius && (i_dot.x - mousePosition.x) > -dots.d_radius && (i_dot.y - mousePosition.y) > -dots.d_radius) {
+                                        ctx.beginPath();
+                                        ctx.moveTo(i_dot.x, i_dot.y);
+                                        ctx.lineTo(j_dot.x, j_dot.y);
+                                        ctx.stroke();
+                                        ctx.closePath();
+                                    }
+                                }
+                            }
+                        }
+                    }
+                };
+
+                function createDots() {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    for (i = 0; i < dots.nb; i++) {
+                        dots.array.push(new Dot());
+                        dot = dots.array[i];
+                        dot.create();
+                    }
+                    dot.line();
+                    dot.animate();
+                }
+
+                window.onmousemove = function(parameter) {
+                    mousePosition.x = parameter.pageX;
+                    mousePosition.y = parameter.pageY;
+                }
+
+                mousePosition.x = window.innerWidth / 2;
+                mousePosition.y = window.innerHeight / 2;
+                setInterval(createDots, 1000 / 30);
+            };
+
+            window.onload = function() {
+                canvasDots();
+            };
+        </script> -->
+        <!-- <script type="text/javascript" src="/js/canvas-nest.min.js"></script> -->
+        <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="https://libtry.com"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">Matlab中使用Git版本控制</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class="main">
+        <h1 class="title">Matlab中使用Git版本控制</h1>
+        <div class="stuff">
+            <span>四月 04, 2019</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Study/">Study</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h3 id="关于什么是Git"><a href="#关于什么是Git" class="headerlink" title="关于什么是Git"></a>关于什么是Git</h3><blockquote>
+<p>关于什么是Git就不做介绍了，网上的介绍有很多，我推荐官方文档<a href="https://git-scm.com/book/en/v2" target="_blank" rel="noopener">GitBook</a>.</p>
+</blockquote>
+<h3 id="Git的安装"><a href="#Git的安装" class="headerlink" title="Git的安装"></a>Git的安装</h3><blockquote>
+<p>关于Git的文章，网上文章同样很多，但是根据Matlab官方文档的说明，安装途中的个别选项需要有一些变化，本篇中只说明需要注意修改的地方，不再长篇，除了指出需要注意的地方其它的保持默认即可，或者自由选择。</p>
+</blockquote>
+<ul>
+<li><p>第一个需要注意的地方就是添加<strong>环境变量的部分</strong>，虽然默认也会选择第二项，但是万一遇到默认不是<strong>第二个选项</strong>的记得要改为<strong>第二个选项</strong>。因为Matlab和Git是需要通过<strong>Cmd</strong>进行通信的。</p>
+<p><img src="/posts/0/2019-04-03_003616.png" alt="2019-04-03_003616"></p>
+</li>
+<li><p>第二个需要注意的地方是<strong>行结束符转换的部分</strong>，根据Matlab官方文档的说明，需要不进行任何行结尾转换<strong>保持原样的进行提交</strong>。所以在这一部分需要选择第三项<strong>Checkout as-is</strong></p>
+<p><img src="/posts/0/2019-04-04_193108.png" alt="2019-04-04_193108"></p>
+</li>
+<li><p>第三个需要注意的地方就是终端模拟器的部分，选择MinTTY的话必须要通过winpty启动，还需要安装一个程序，虽然对我们的使用可能没有太大的影响，但是秉着多一事不如少一事的原则。这里我们只需要选择Windows 的默认控制台即好。当然，你也可以随你心情选择折腾一下，毕竟生命在于运动，生活在于折腾。</p>
+<p><img src="/posts/0/2019-04-03_010225.png" alt="2019-04-03_010225"></p>
+</li>
+</ul>
+<blockquote>
+<p>到这里，Git的安装就结束了，接下来打开Matlab，如果在安装之前你已经打开Matlab了，那么这时你需要关闭并重新打开。</p>
+</blockquote>
+<h3 id="代码托管平台的注册"><a href="#代码托管平台的注册" class="headerlink" title="代码托管平台的注册"></a>代码托管平台的注册</h3><blockquote>
+<p>在使用Git版本控制的时候，最好注册一个代码托管平台。GitHub，Gitlab，Gitee等都可以，这里以Github为例。如果你已经拥有了账号，可以跳过这里。如果没有账号，那我们就先按流程注册一个账号。</p>
+</blockquote>
+<ul>
+<li><p>首先我们打开<a href="https://github.com/" target="_blank" rel="noopener">Github的官网</a>,然后点击箭头指示的<kbd>Sign up</kbd>.</p>
+<p><img src="/posts/0/2019-04-04_200933.png" alt="2019-04-04_200933"></p>
+</li>
+<li><p>根据页面中的说明填写相关的信息，其中密码的地方需要注意一下，下面的小字提示中说密码<strong>最少有15位或至少8位</strong>。看着可能有点糊涂，其实是不同的组合规则，</p>
+<p>当你需要设置的密码为8位时，或大于8位小于15位的时候，你的密码中必须要包含数字和小写字母的组合。</p>
+<p>当你需要设置的密码为15位时，或者大于15位时，可以是任意字符的组合。</p>
+<p><img src="/posts/0/2019-04-04_201712.png" alt="2019-04-04_201712"></p>
+</li>
+<li><p>当上面的信息输入完毕之后，下滑到验证的位置，点击验证。</p>
+<p><img src="/posts/0/2019-04-04_203202.png" alt="2019-04-04_203202"></p>
+</li>
+<li><p>验证的方式很好玩，需要将小动物图片的位置摆正。验证通过后，点下面绿色按钮进行下一步。</p>
+<p><img src="/posts/0/2019-04-04_203550.png" alt="2019-04-04_203550"></p>
+</li>
+<li><p>填写一些基本信息，如果不想填写的话，可以跳过。</p>
+<p><img src="/posts/0/2019-04-04_204555.png" alt="2019-04-04_204555"></p>
+</li>
+<li><p>注册完成后会发送一份邮件给你在注册时填写的邮箱地址，直接去邮箱点击验证连接就完成了注册。</p>
+<p><img src="/posts/0/2019-04-04_205544.png" alt="2019-04-04_205544"></p>
+</li>
+<li><p>点击蓝色的验证邮箱按钮进行验证。</p>
+<p><img src="/posts/0/2019-04-04_205848.png" alt="2019-04-04_205848"></p>
+</li>
+</ul>
+<h3 id="创建存储库"><a href="#创建存储库" class="headerlink" title="创建存储库"></a>创建存储库</h3><blockquote>
+<p>经过上面的流程将账号创建号之后，就可以进行库的创建了。同样是很简单，很详细的图文说明。</p>
+</blockquote>
+<ul>
+<li><p>打开你的GitHub页面，点击图标旁边的“+”号，然后选择New repository</p>
+<p><img src="/posts/0/2019-04-04_210649.png" alt="2019-04-04_210649"></p>
+</li>
+<li><p>给你的存储库起一个有意义的名字，根据你的喜好选择你需要的权限，然后点击绿色的按钮。</p>
+<p><img src="/posts/0/2019-04-04_212947.png" alt="2019-04-04_212947"></p>
+</li>
+<li><p>到这里Github部分就完成了，复制创建完成后的存储库地址。我们转到Matlab中进行使用。先不要关闭这个页面，稍后还会回来看的。</p>
+<p><img src="/posts/0/2019-04-04_220634.png" alt="2019-04-04_220634"></p>
+</li>
+</ul>
+<h3 id="在Matlab中使用Git"><a href="#在Matlab中使用Git" class="headerlink" title="在Matlab中使用Git"></a>在Matlab中使用Git</h3><blockquote>
+<p>通过前面的步骤，我们已经有了Github的账号，也有了存储库和存储库的地址，接下来就是在Matlab中使用这个存储库。现在切换到我们之前打开的Matlab程序，如果你已经关闭了，请重新打开。</p>
+</blockquote>
+<ul>
+<li><p>将Matlab中的左侧的地址定位到你存放代码的文件夹位置，之后新建一个文件夹并进入到这个新建的文件内，然后在左侧的文件列表中右键，选择源代码管理—&gt;管理文件，最后单击管理文件。</p>
+<p><img src="/posts/0/1554388540894.png" alt="1554388540894"></p>
+</li>
+<li><p>弹出这样一个界面。</p>
+<p><img src="/posts/0/1554388671747.png" alt="1554388671747"></p>
+</li>
+<li><p>这个时候我们把之前复制的Github的存储库地址，粘贴到存页面中显示的第二项“存储库路径”里面。</p>
+<p><img src="/posts/0/1554388995572.png" alt="1554388995572"></p>
+</li>
+<li><p>之后会弹出登陆对话框，使用之前注册的Github账户进行登陆。</p>
+<p><img src="/posts/0/1554389105121.png" alt="1554389105121"></p>
+</li>
+<li><p>登陆成功之后会自动初始化一个本地的存储库，这个本地的储存库可以把它理解成是远端存储库的副本，我们所有，将要，对，远端存储库所做的修改。会，首先在本地存储库进行，最后再将本地存储库的内容更新到远端。</p>
+</li>
+<li><p>接下来我们通过将一个文件推送到远程存储库，来简单的熟悉一下整个流程。首先我们在左侧的文件列表当中右键新建一个文件，随便什么文件，函数脚本都可以，就像我们之前写程序时的操作那样。这里我创建了一个test1.m的文件。</p>
+<p><img src="/posts/0/1554389810044.png" alt="1554389810044"></p>
+</li>
+<li><p>文件创建完成之后我们可以看到，在文件列表的右侧多了一个Git的类别，并且文件的后面多了一个白色的图标。这个图标代表的是这个文件在Git版本控制系统里面的状态，白色圆点图标代表该文件没有被添加到Git版本控制当中。这个时候我们单击选中这个文件，然后在文件身上点击右键。</p>
+<p><img src="/posts/0/1554390418398.png" alt="1554390418398"></p>
+</li>
+<li><p>选择源代码管理—&gt;添加到Git。</p>
+<p><img src="/posts/0/1554390468669.png" alt="1554390468669"></p>
+</li>
+<li><p>看，这时文件右侧图标变成了“+”号，鼠标移到上面还能显示已添加的字样。但是这个时候我们对存储库的修改还只是存在于本地的缓存当中，所以接下来我们要将本地缓存的数据提交到本地的存储库。</p>
+<p><img src="/posts/0/1554390610038.png" alt="1554390610038"></p>
+</li>
+<li><p>在文件或空白处都可以，我们点击右键，选择源代码管理–&gt;查看并提交更改。这一步的操作是将本地缓存的数据提交到本地的存储库。</p>
+<p><img src="/posts/0/1554394282296.png" alt="1554394282296"></p>
+</li>
+<li><p>选中本次提交中所有要提交的文件，填写Comment中的内容。Comment的内容尽量要详细的说明本次提交的目的，不要像我的图片中这样随便打几个字符就完了。就算是一个人提交也要写的清清楚楚的，方便日后需要查看时，能快速了解当前版本的状态。</p>
+<p><img src="/posts/0/1554394455338.png" alt="1554394455338"></p>
+</li>
+<li><p>提交完成后可以看到文件列表中右侧的状态图标变成了绿色的圆点。此时数据已经更新到了本地存储库中。接着我们将本地存储库的数据更新到远端存储库。</p>
+<p><img src="/posts/0/1554394580485.png" alt="1554394580485"></p>
+</li>
+<li><p>还是在左侧的文件列表的文件身上或空白处右键，选择源代码管理–&gt;推送。</p>
+<p><img src="/posts/0/1554394603924.png" alt="1554394603924"></p>
+</li>
+<li><p>输入你的账户信息点击确定，如果没有错误信息弹出就说明推送成功了。这个时候我们可以到远端仓库看一眼是否推送成功了。</p>
+<p><img src="/posts/0/1554394634039.png" alt="1554394634039"></p>
+</li>
+<li><p>打开之前浏览器中的仓库页面，刷新一下。看一下是不是如下面图片一样的页面。</p>
+<p><img src="/posts/0/1554394648833.png" alt="1554394648833"></p>
+</li>
+</ul>
+<blockquote>
+<p>到这里在Matlab中使用Git的基本方法你就已经掌握了。简单的总结下流程就是：</p>
+<p>添加文件–&gt;编写–&gt;提交本地–&gt;推送远端</p>
+<p>至于什么时候提交，什么时候推送，这个要由你自己控制。</p>
+</blockquote>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src>
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        <li title="0" data-url="http://link.hhtjim.com/qq/001faIUs4M2zna.mp3"></li>
+                    
+                </ul>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link" data-ae="false" data-ci="3ebadceb557ab60472e6" data-cs="653fe853b558502a0b33d2e386f567f59a5cc02e" data-r="lartry.github.io" data-o="lartry" data-a="lartry" data-d="false">查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+    </body>
+    <script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+        
+
+
+            </html>
